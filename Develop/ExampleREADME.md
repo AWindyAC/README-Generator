@@ -1,34 +1,51 @@
-# Readme-Generator
-  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/AWindyAC/readme-generator?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/AWindyAC/readme-generator?style=flat&logo=appveyor)
+# README Generator
+  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/AWindyAC/undefined?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/AWindyAC/undefined?style=flat&logo=appveyor)
   
   Check out the badges hosted by [shields.io](https://shields.io/).
   
   
   ## Description 
   
-  *The what, why, and how:* 
   
-  This project dynamically generates README files for your projects.
+  Dynanimcally generates professional README files.
   ## Table of Contents
   * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
   * [License](#license)
   
   ## Installation
   
-  *Steps required to install project and how to get the development environment running:*
+  *This is how you can get the project running for you*
   
-  No real instructions. Just run the code in your terminal.
+  Clone the repository and run node index.js in the terminal.
+  
+  ## Usage 
+  
+  *Instructions and examples for use:*
+  
+  npm start in the terminal.
+  
+  ## Contributing
+  
+  *If you would like to contribute, instructions are below*
+  
+  Reach out via email.
+  
+  ## Tests
+  
+  *Tests for application and how to run them:*
+  
+  undefined
   
   ## License
   
-  MIT License
+  MIT
   
   ---
   
   ## Questions?
-  <img src="https://avatars.githubusercontent.com/u/123840237?v=4" alt="AWindyAC" width="40%" />
   
-  For any questions, please contact me with the information below:
- 
-  GitHub: [@AWindyAC](https://api.github.com/users/AWindyAC)
+  Email: fowlkes.wendell@gmail.com
   

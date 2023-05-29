@@ -1,36 +1,54 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+//Function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license !== 'None') {
+    return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`;
+  }
+  return '';
+}
 
-// TODO: Create a function that returns the license link
+//Function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license !== 'None') {
+    return `\n* [License](#license)\n`;
+  }
+  return '';
+}
 
-// TODO: Create a function that returns the license section of README
+//Function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license !== 'None') {
+    return `## License
 
-// TODO: Create a function to generate markdown for README
+This project is licensed under the ${license} license.`;
+  }
+  return '';
+}
+
+//Function to generate markdown for README
 function generateMarkdown(userResponses, userInfo) {
-
+  
   // Generate Table of Contents conditionally based on userResponses
-  let draftToC = `## Table of Contents`;
+  
+  let TableOfContents = `## Table of Contents`;
 
-  if (userResponses.installation !== '') { draftToC += `
+  if (userResponses.installation !== '') { TableOfContents += `
   * [Installation](#installation)` };
 
-  if (userResponses.usage !== '') { draftToC += `
+  if (userResponses.usage !== '') { TableOfContents += `
   * [Usage](#usage)` };
 
-  if (userResponses.contributing !== '') { draftToC += `
+  if (userResponses.contributing !== '') { TableOfContents += `
   * [Contributing](#contributing)` };
 
-  if (userResponses.tests !== '') { draftToC += `
+  if (userResponses.tests !== '') { TableOfContents += `
   * [Tests](#tests)` };
 
 
-  // Generate markdown for the top required portions of the README
-  let draftMarkdown = 
+  //Making the title
+  let MarkDownText = 
   `# ${userResponses.title}
   ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor)
   
@@ -38,38 +56,30 @@ function generateMarkdown(userResponses, userInfo) {
   
   
   ## Description 
-  
-  *The what, why, and how:* 
-  
   ${userResponses.description}
+  
   `
-
-  // Add Table of Contents to markdown
-  draftMarkdown += draftToC;
+  MarkDownText += TableOfContents;
  
-  // Add License section since License is required to Table of Contents
-  draftMarkdown += `
+
+  MarkDownText += `
   * [License](#license)`;
   
-
-  // Optional Installation section
   if (userResponses.installation !== '') {
   
-  draftMarkdown +=
+  MarkDownText +=
   `
   
   ## Installation
   
-  *Steps required to install project and how to get the development environment running:*
+  *This is how you can get the project running for you*
   
   ${userResponses.installation}`
   };
   
-
-  // Optional Usage section
   if (userResponses.usage !== '') {
   
-  draftMarkdown +=
+  MarkDownText +=
   
   `
   
@@ -80,26 +90,24 @@ function generateMarkdown(userResponses, userInfo) {
   ${userResponses.usage}`
   };
   
-  
-  // Optional Contributing section
-  if (userResponses.contributing !== '') {
+  if (userResponses.contribution !== '') {
 
-  draftMarkdown +=
+  MarkDownText +=
     
   `
   
   ## Contributing
   
-  *If you would like to contribute it, you can follow these guidelines for how to do so.*
+  *If you would like to contribute, instructions are below*
   
-  ${userResponses.contributing}`
+  ${userResponses.contribution}`
   };
   
 
   // Optional Tests section
   if (userResponses.tests !== '') {
   
-  draftMarkdown +=
+  MarkDownText +=
   `
   
   ## Tests
@@ -109,9 +117,7 @@ function generateMarkdown(userResponses, userInfo) {
   ${userResponses.tests}`
   };
 
-
-  // License section is required
-  draftMarkdown +=
+  MarkDownText +=
   `
   
   ## License
@@ -119,43 +125,25 @@ function generateMarkdown(userResponses, userInfo) {
   ${userResponses.license}
   `;
 
-
-  // Questions / About Developer section
-  let draftDev = 
+  let devInfo = 
   `
   ---
   
   ## Questions?
-  <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="40%" />
-  
-  For any questions, please contact me with the information below:
- 
-  GitHub: [@${userInfo.login}](${userInfo.url})
   `;
 
-  // If GitHub email is not null, add to Developer section
-  if (userInfo.email !== null) {
+  //Dev Info
+  if (userResponses.email !== null) {
   
-  draftDev +=
+  devInfo +=
   `
-  Email: ${userInfo.email}
+  Email: ${userResponses.email}
   `};
 
-  // Add developer section to markdown
-  draftMarkdown += draftDev;
+  MarkDownText += devInfo;
 
-  // Return markdown
-  return draftMarkdown;
+  return MarkDownText;
   
 }
 
 module.exports = generateMarkdown;
-
-/*
-function generateMarkdown(data) {
-  
-  return `# ${data.title}`;
-}
-
-module.exports = generateMarkdown;
-*/
